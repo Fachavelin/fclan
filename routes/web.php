@@ -35,5 +35,5 @@ Route::group([
 //Rutas Autenticacion 
 Route::auth();
 //Rutas Social Network Intration
-Route::get('login/facebook','SocialLoginController@redirectToFacebook')->name('login.facebook');
-Route::get('login/facebook/callback','SocialLoginController@handleFacebookCallback');
+Route::get('login/{driver}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback');
